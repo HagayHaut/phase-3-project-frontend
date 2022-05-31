@@ -1,30 +1,20 @@
-import React, { useEffect, useState }  from 'react'
+import React from 'react'
 import Task from "./Task"
 
-const API = 'http://localhost:9292'
-
-function TaskList() {
-
-    const [tasks, setTasks] = useState([]);
-
-    useEffect(() => {
-        fetch(API + '/tasks')
-        .then(r => r.json())
-        .then(setTasks)
-    }, [])
-
-    const taskListItems = tasks.map(task => {
-        return <Task key={task.id} task={task}/>
-    })
+function TaskList({ onToggle, tasks, onDelete }) {
 
   return (
-    <div>
-        <h2>TO DO:</h2>
-        <ul>
-            {taskListItems}
-        </ul>
-    </div>
-  )
+    <React.Fragment>
+    {tasks.map((task) => (
+     <Task 
+         key = {task.id} 
+         task = {task} 
+         onDelete = {() => onDelete(task.id)} 
+         onToggle = {() => onToggle(task.id)}
+    />
+    ))}
+    </React.Fragment>
+ )
 }
 
-export default TaskList
+export default TaskList;
