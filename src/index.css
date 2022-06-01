@@ -8,6 +8,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  background: rgb(160, 160, 160);
 }
 
 .container.dark {
@@ -20,6 +21,7 @@ body {
 
 .container {
   max-width: 500px;
+  background: #fff;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;

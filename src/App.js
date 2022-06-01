@@ -106,34 +106,34 @@ const onToggleDarkMode = () => {
 
   return (
     <Router>
-    <div className={isDarkMode ? 'container dark' : 'container'}>
-    
-      <Header onAdd = {() => setShowAddTask(!showAddTask)}
-        showAdd = {showAddTask}
-        isDarkMode = {isDarkMode}
-        onToggleDarkMode = {onToggleDarkMode}
-      />
-
-      <Route path="/" exact render = {(props) => (
-        <>
-        {showAddTask && <AddTask onAdd = {addTask}/>}
-        {tasks.length > 0 ? (
-          <TaskList
-          onMarkComplete = {onMarkComplete}
-          tasks = {tasks}
+      <div className={isDarkMode ? 'container dark' : 'container'}>
+      
+        <Header onAdd = {() => setShowAddTask(!showAddTask)}
+          showAdd = {showAddTask}
           isDarkMode = {isDarkMode}
-          onDelete = {deleteTask}
-          onToggle = {toggleReminder}
-          />
-        ) : (
-          "No tasks to show"
-        )}
-        </>
-      )}
-      />
-      {/* <TaskList tasks = {tasks} onToggle = {toggleReminder} onDelete = {deleteTask} /> */}
+          onToggleDarkMode = {onToggleDarkMode}
+        />
 
-      </div>
+        <Route path="/" exact render = {(props) => (
+          <>
+          {showAddTask && <AddTask onAdd = {addTask}/>}
+          {tasks.length > 0 ? (
+            <TaskList
+            onMarkComplete = {onMarkComplete}
+            tasks = {tasks}
+            isDarkMode = {isDarkMode}
+            onDelete = {deleteTask}
+            onToggle = {toggleReminder}
+            />
+          ) : (
+            "No tasks to show"
+          )}
+          </>
+        )}
+        />
+        {/* <TaskList tasks = {tasks} onToggle = {toggleReminder} onDelete = {deleteTask} /> */}
+
+        </div>
     </Router>
   );
 }
