@@ -9,7 +9,7 @@ const AddTask = ({onAdd}) => {
     const [description, setDescription] = useState ('')
     const [due_by, setDue_by] = useState (date)
     const [reminder, setReminder] = useState (false)
-    const [category, setCategory] = useState ('')
+    const [category, setCategory] = useState ("Miscellaneous")
 
 const onSubmit = (e) => {
     e.preventDefault()

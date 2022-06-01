@@ -21,11 +21,12 @@ function Task({ task, onToggle, onDelete, onMarkComplete, isDarkMode }) {
         >
         <h3>
           {description} {' '}
+          <p className="category_tag">{category.name}</p>
           <p className="h4_date">By: {date_format}</p>
-            <FaCheckDouble style={{position: "relative", top: -52, left: 348}} title='Mark As Completed' className = {isDarkMode ? 'complete dark' : 'complete'}
+            <FaCheckDouble style={{position: "relative", top: -87, left: 348}} title='Mark As Completed' className = {isDarkMode ? 'complete dark' : 'complete'}
               onClick = { () => onMarkComplete(task.id)}
             />
-            <FaTimes style={{position: "relative", top: -52, left: 350}} title='Delete Task' className = {isDarkMode ? 'delete dark' : 'delete'} 
+            <FaTimes style={{position: "relative", top: -87, left: 350}} title='Delete Task' className = {isDarkMode ? 'delete dark' : 'delete'} 
               onClick = {() => onDelete(task.id)}
             />
         </h3>
