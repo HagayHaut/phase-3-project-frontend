@@ -22,7 +22,7 @@ function Task({ task, onToggle, onDelete, onMarkComplete, isDarkMode }) {
         <h3>
           {description} {' '}
           <div style={{textAlign: 'right'}}>
-            <FaCheckDouble title='Mark as Completed' className = {isDarkMode ? 'complete dark' : 'complete'}
+            <FaCheckDouble title='Mark As Completed' className = {isDarkMode ? 'complete dark' : 'complete'}
               onClick = { () => onMarkComplete(task.id)}
             />
             <FaTimes title='Delete Task' className = {isDarkMode ? 'delete dark' : 'delete'} 
