@@ -2,16 +2,20 @@ import React from 'react'
 import {useState} from 'react'
 
 const AddTask = ({onAdd}) => {
+    let todaysDate = new Date()
+    todaysDate.setDate(todaysDate.getDate())
+    let date = todaysDate.toISOString().slice(0,10)
+    
     const [description, setDescription] = useState ('')
-    const [due_by, setDue_by] = useState ('')
+    const [due_by, setDue_by] = useState (date)
     const [reminder, setReminder] = useState (false)
-    const [category, setCategory] = useState ('')
+    const [category, setCategory] = useState ("Miscellaneous")
 
 const onSubmit = (e) => {
     e.preventDefault()
 
-    if(!description) {
-        alert('Please add a task')
+    if(!description || !due_by) {
+        alert('Please complete all fields')
         return
     }
 
