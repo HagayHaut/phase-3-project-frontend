@@ -3,7 +3,7 @@ import {FaTimes, FaCheckDouble} from 'react-icons/fa'
 
 function Task({ task, onToggle, onDelete, onMarkComplete, isDarkMode }) {
 
-  const { reminder, category_id, completed, description, due_by, id } = task;
+  const { reminder, category, completed, description, date_format, id } = task;
 
   const taskClassName = () => {
     let result = 'task'
@@ -21,17 +21,14 @@ function Task({ task, onToggle, onDelete, onMarkComplete, isDarkMode }) {
         >
         <h3>
           {description} {' '}
-          <div style={{textAlign: 'right'}}>
-            <FaCheckDouble title='Mark As Completed' className = {isDarkMode ? 'complete dark' : 'complete'}
+          <p className="h4_date">By: {date_format}</p>
+            <FaCheckDouble style={{position: "relative", top: -52, left: 348}} title='Mark As Completed' className = {isDarkMode ? 'complete dark' : 'complete'}
               onClick = { () => onMarkComplete(task.id)}
             />
-            <FaTimes title='Delete Task' className = {isDarkMode ? 'delete dark' : 'delete'} 
+            <FaTimes style={{position: "relative", top: -52, left: 350}} title='Delete Task' className = {isDarkMode ? 'delete dark' : 'delete'} 
               onClick = {() => onDelete(task.id)}
             />
-              
-          </div>
         </h3>
-        {/* <p>{due_by}</p> */}
     </div>
   )
 }
