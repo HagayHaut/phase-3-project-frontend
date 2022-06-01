@@ -1,7 +1,7 @@
 import React from 'react'
 import Task from "./Task"
 
-function TaskList({ onToggle, tasks, onDelete }) {
+function TaskList({ onToggle, tasks, onDelete, onMarkComplete }) {
 
   return (
     <React.Fragment>
@@ -11,6 +11,7 @@ function TaskList({ onToggle, tasks, onDelete }) {
          task = {task} 
          onDelete = {() => onDelete(task.id)} 
          onToggle = {() => onToggle(task.id)}
+         onMarkComplete = {onMarkComplete}
     />
     ))}
     </React.Fragment>

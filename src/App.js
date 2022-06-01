@@ -64,7 +64,7 @@ const toggleReminder = async (id) => {
     'Content-type': 'application/json'
   },
   body: JSON.stringify(updTask),
-})
+  })
 
 const data = await res.json()
 
@@ -75,7 +75,30 @@ const data = await res.json()
     )
   )
 }
-  
+
+const onMarkComplete = async (id) => {
+
+  const taskToToggle = await fetchTask(id)
+  const updTask = {...taskToToggle, completed: !taskToToggle.completed}
+
+  const res = await fetch(API + 'tasks/' + id, {
+  method: 'PATCH',
+  headers: {
+    'Content-type': 'application/json'
+  },
+  body: JSON.stringify(updTask),
+  })
+
+const data = await res.json()
+
+  setTasks(
+    tasks.map((task) => 
+    task.id === id ? {...task, completed:
+      !task.completed} : task
+    )
+  )
+}
+
   return (
     <Router>
     <div className="container">
@@ -86,9 +109,10 @@ const data = await res.json()
 
       <Route path="/" exact render = {(props) => (
         <>
-        {showAddTask && <AddTask onAdd = {addTask} />}
+        {showAddTask && <AddTask onAdd = {addTask}/>}
         {tasks.length > 0 ? (
           <TaskList
+          onMarkComplete = {onMarkComplete}
           tasks = {tasks}
           onDelete = {deleteTask}
           onToggle = {toggleReminder}
