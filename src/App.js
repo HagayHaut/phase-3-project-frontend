@@ -18,14 +18,14 @@ function App() {
 
 //Fetch task
 const fetchTask = async(id) => {
-  const res = await fetch(API + id)
+  const res = await fetch(API + 'tasks/' + id)
   const data = await res.json()
   return data
 }
 
 //Add task
 const addTask = async (task) => {
-  const res = await fetch(API, {
+  const res = await fetch(API + 'tasks', {
     method: 'POST',
     headers: {
       'Content-type' : 'application/json'
@@ -40,7 +40,7 @@ const addTask = async (task) => {
 
 //Delete Task
 const deleteTask = async (id) => {
-  await fetch(API + id, {
+  await fetch(API + 'tasks/'+ id, {
     method: 'DELETE'
   })
 
@@ -58,8 +58,8 @@ const toggleReminder = async (id) => {
   const taskToToggle = await fetchTask(id)
   const updTask = {...taskToToggle, reminder: !taskToToggle.reminder}
 
-  const res = await fetch(API + id, {
-  method: 'PUT',
+  const res = await fetch(API + 'tasks/' + id, {
+  method: 'PATCH',
   headers: {
     'Content-type': 'application/json'
   },

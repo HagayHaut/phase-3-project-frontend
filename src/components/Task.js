@@ -14,11 +14,11 @@ function Task({ task, onToggle, onDelete }) {
         >
         <h3>
           {description} {' '}
-            <FaTimes style = {{color: 'red', cursor: 'pointer'}} 
+            <FaTimes title='Delete Task' style = {{color: 'red', cursor: 'pointer'}} 
             onClick = {() => onDelete(task.id)}
             />
         </h3>
-        <p>{due_by}</p>
+        {/* <p>{due_by}</p> */}
     </div>
   )
 }
