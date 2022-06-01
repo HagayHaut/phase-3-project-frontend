@@ -113,18 +113,22 @@ const onToggleDarkMode = () => {
           isDarkMode = {isDarkMode}
           onToggleDarkMode = {onToggleDarkMode}
         />
-
+        <div className = 'divider'></div>
         <Route path="/" exact render = {(props) => (
           <>
-          {showAddTask && <AddTask onAdd = {addTask}/>}
+          {showAddTask && <>
+                            <AddTask onAdd = {addTask}/>
+                            <div className = 'divider'></div>
+                          </>}
           {tasks.length > 0 ? (
-            <TaskList
-            onMarkComplete = {onMarkComplete}
-            tasks = {tasks}
-            isDarkMode = {isDarkMode}
-            onDelete = {deleteTask}
-            onToggle = {toggleReminder}
-            />
+           
+              <TaskList
+              onMarkComplete = {onMarkComplete}
+              tasks = {tasks}
+              isDarkMode = {isDarkMode}
+              onDelete = {deleteTask}
+              onToggle = {toggleReminder}
+              />
           ) : (
             "No tasks to show"
           )}
