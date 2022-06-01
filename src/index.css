@@ -10,14 +10,23 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.container.dark {
+  color: rgb(255, 255, 255);
+  background: rgb(50, 50, 50);
+  /* --background-light: rgb(101, 101, 101); */
+  transition: all 0.3s;
+}
+
+
 .container {
   max-width: 500px;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
+  border: 1px solid rgb(50,50,50);
   padding: 30px;
   border-radius: 5px;
+  transition: all 0.3s;
 }
 
 .header {
@@ -54,6 +63,39 @@ body {
   width: 100%;
 }
 
+
+.mode-btn {
+  display: inline-block;
+  background: rgb(50,50,50);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.mode-btn.dark {
+  background: #fff;
+  color: rgb(50,50,50);
+}
+
+.mode-btn:focus {
+  outline: none;
+}
+
+.mode-btn:active {
+  transform: scale(0.98);
+}
+
+.mode-btn-block {
+  display: block;
+  width: 100%;
+}
+
 .task {
   background: #f4f4f4;
   margin: 5px;
@@ -69,6 +111,32 @@ body {
   text-decoration: line-through;
   background-color: rgb(160, 160, 160);
   opacity: 0.5;
+}
+
+.task.dark {
+  color: rgb(255, 255, 255);
+  background: rgb(105, 105, 105);
+  margin: 5px;
+  padding: 10px 20px;
+  transition: all 0.3s;
+}
+
+.complete {
+  cursor: pointer;
+  color: green;
+}
+
+.complete.dark {
+  color: rgb(88, 233, 88);
+}
+
+.delete {
+  cursor: pointer;
+  color: red;
+}
+
+.delete.dark {
+  color: rgb(255, 58, 58)
 }
 
 .task h3 {

@@ -9,6 +9,7 @@ const API = 'http://localhost:9292/'
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     fetch(API + '/tasks')
@@ -99,12 +100,18 @@ const data = await res.json()
   )
 }
 
+const onToggleDarkMode = () => {
+  setIsDarkMode(isDarkMode => !isDarkMode)
+}
+
   return (
     <Router>
-    <div className="container">
+    <div className={isDarkMode ? 'container dark' : 'container'}>
     
       <Header onAdd = {() => setShowAddTask(!showAddTask)}
         showAdd = {showAddTask}
+        isDarkMode = {isDarkMode}
+        onToggleDarkMode = {onToggleDarkMode}
       />
 
       <Route path="/" exact render = {(props) => (
@@ -114,6 +121,7 @@ const data = await res.json()
           <TaskList
           onMarkComplete = {onMarkComplete}
           tasks = {tasks}
+          isDarkMode = {isDarkMode}
           onDelete = {deleteTask}
           onToggle = {toggleReminder}
           />
