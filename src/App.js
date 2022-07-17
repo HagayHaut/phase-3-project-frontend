@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import AddTask from "./components/AddTask";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-const API = "http://localhost:9292";
+const API = "https://immense-retreat-28463.herokuapp.com";
 
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
